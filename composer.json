@@ -1,0 +1,18 @@
+{
+    "name": "crud-usuarios/app",
+    "description": "CRUD de usuarios con arquitectura hexagonal",
+    "type": "project",
+    "require": {
+        "php": ">=8.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Domain\\": "src/Domain/",
+            "Application\\": "src/Application/",
+            "Infrastructure\\": "src/Infrastructure/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true
+    }
+}
