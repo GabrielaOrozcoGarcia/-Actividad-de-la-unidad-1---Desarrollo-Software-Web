@@ -6,11 +6,9 @@
         "php": ">=8.1"
     },
     "autoload": {
-        "psr-4": {
-            "Domain\\": "src/Domain/",
-            "Application\\": "src/Application/",
-            "Infrastructure\\": "src/Infrastructure/"
-        }
+        "classmap": [
+            "src/"
+        ]
     },
     "config": {
         "optimize-autoloader": true

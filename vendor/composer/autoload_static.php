@@ -6,45 +6,77 @@ namespace Composer\Autoload;
 
 class ComposerStaticInitb7f60876dab755844675d7631bf687da
 {
-    public static $prefixLengthsPsr4 = array (
-        'I' =>
-        array (
-            'Infrastructure\\' => 15,
-        ),
-        'D' =>
-        array (
-            'Domain\\' => 7,
-        ),
-        'A' =>
-        array (
-            'Application\\' => 12,
-        ),
-    );
-
-    public static $prefixDirsPsr4 = array (
-        'Infrastructure\\' =>
-        array (
-            0 => __DIR__ . '/../..' . '/src/Infrastructure',
-        ),
-        'Domain\\' =>
-        array (
-            0 => __DIR__ . '/../..' . '/src/Domain',
-        ),
-        'Application\\' =>
-        array (
-            0 => __DIR__ . '/../..' . '/src/Application',
-        ),
-    );
-
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'Connection' => __DIR__ . '/../..' . '/src/Infrastructure/Adapters/Persistence/MySQL/Config/Connection.php',
+        'CreateUserCommand' => __DIR__ . '/../..' . '/src/Application/Services/Dto/Commands/CreateUserCommand.php',
+        'CreateUserService' => __DIR__ . '/../..' . '/src/Application/Services/CreateUserService.php',
+        'CreateUserUseCase' => __DIR__ . '/../..' . '/src/Application/Ports/In/CreateUserUseCase.php',
+        'CreateUserWebRequest' => __DIR__ . '/../..' . '/src/Infrastructure/Entrypoints/Web/Controllers/Dto/CreateUserRequest.php',
+        'DeleteUserCommand' => __DIR__ . '/../..' . '/src/Application/Services/Dto/Commands/DeleteUserCommand.php',
+        'DeleteUserPort' => __DIR__ . '/../..' . '/src/Application/Ports/Out/DeleteUserPort.php',
+        'DeleteUserService' => __DIR__ . '/../..' . '/src/Application/Services/DeleteUserService.php',
+        'DeleteUserUseCase' => __DIR__ . '/../..' . '/src/Application/Ports/In/DeleteUserUseCase.php',
+        'DomainEvent' => __DIR__ . '/../..' . '/src/Domain/Events/DomainEvent.php',
+        'DomainException' => __DIR__ . '/../..' . '/src/Domain/Exceptions/DomainException.php',
+        'Flash' => __DIR__ . '/../..' . '/src/Infrastructure/Entrypoints/Web/Presentation/Flash.php',
+        'GetAllUsersPort' => __DIR__ . '/../..' . '/src/Application/Ports/Out/GetAllUsersPort.php',
+        'GetAllUsersQuery' => __DIR__ . '/../..' . '/src/Application/Services/Dto/Queries/GetAllUsersQuery.php',
+        'GetAllUsersService' => __DIR__ . '/../..' . '/src/Application/Services/GetAllUsersService.php',
+        'GetAllUsersUseCase' => __DIR__ . '/../..' . '/src/Application/Ports/In/GetAllUsersUseCase.php',
+        'GetUserByEmailPort' => __DIR__ . '/../..' . '/src/Application/Ports/Out/GetUserByEmailPort.php',
+        'GetUserByIdPort' => __DIR__ . '/../..' . '/src/Application/Ports/Out/GetUserByIdPort.php',
+        'GetUserByIdQuery' => __DIR__ . '/../..' . '/src/Application/Services/Dto/Queries/GetUserByIdQuery.php',
+        'GetUserByIdService' => __DIR__ . '/../..' . '/src/Application/Services/GetUserByIdService.php',
+        'GetUserByIdUseCase' => __DIR__ . '/../..' . '/src/Application/Ports/In/GetUserByIdUseCase.php',
+        'Infrastructure\\Entrypoints\\Web\\Controllers\\Mapper\\UserWebMapper' => __DIR__ . '/../..' . '/src/Application/Services/Mappers/UserWebMapper.php',
+        'Infrastructure\\Persistence\\MySQL\\Container' => __DIR__ . '/../..' . '/src/Infrastructure/Adapters/Persistence/MySQL/Container.php',
+        'Infrastructure\\Persistence\\MySQL\\DatabaseConnection' => __DIR__ . '/../..' . '/src/Infrastructure/Adapters/Persistence/MySQL/DatabaseConnection.php',
+        'Infrastructure\\Persistence\\MySQL\\UserRepositoryMySQL' => __DIR__ . '/../..' . '/src/Infrastructure/Adapters/Persistence/MySQL/UserRepositoryMySQL.php',
+        'InvalidCredentialsException' => __DIR__ . '/../..' . '/src/Domain/Exceptions/InvalidCredentialsException.php',
+        'InvalidUserEmailException' => __DIR__ . '/../..' . '/src/Domain/Exceptions/InvalidUserEmailException.php',
+        'InvalidUserIdException' => __DIR__ . '/../..' . '/src/Domain/Exceptions/InvalidUserIdException.php',
+        'InvalidUserNameException' => __DIR__ . '/../..' . '/src/Domain/Exceptions/InvalidUserNameException.php',
+        'InvalidUserPasswordException' => __DIR__ . '/../..' . '/src/Domain/Exceptions/InvalidUserPasswordException.php',
+        'InvalidUserRoleException' => __DIR__ . '/../..' . '/src/Domain/Exceptions/InvalidUserRoleException.php',
+        'InvalidUserStatusException' => __DIR__ . '/../..' . '/src/Domain/Exceptions/InvalidUserStatusException.php',
+        'LoginCommand' => __DIR__ . '/../..' . '/src/Application/Services/Dto/Commands/LoginCommand.php',
+        'LoginService' => __DIR__ . '/../..' . '/src/Application/Services/LoginService.php',
+        'LoginUseCase' => __DIR__ . '/../..' . '/src/Application/Ports/In/LoginUseCase.php',
+        'LoginWebRequest' => __DIR__ . '/../..' . '/src/Infrastructure/Entrypoints/Web/Controllers/Dto/LoginWebRequest.php',
+        'SaveUserPort' => __DIR__ . '/../..' . '/src/Application/Ports/Out/SaveUserPort.php',
+        'UpdateUserCommand' => __DIR__ . '/../..' . '/src/Application/Services/Dto/Commands/UpdateUserCommand.php',
+        'UpdateUserPort' => __DIR__ . '/../..' . '/src/Application/Ports/Out/UpdateUserPort.php',
+        'UpdateUserService' => __DIR__ . '/../..' . '/src/Application/Services/UpdateUserService.php',
+        'UpdateUserUseCase' => __DIR__ . '/../..' . '/src/Application/Ports/In/UpdateUserUseCase.php',
+        'UpdateUserWebRequest' => __DIR__ . '/../..' . '/src/Infrastructure/Entrypoints/Web/Controllers/Dto/UpdateUserRequest.php',
+        'UserAlreadyExistsException' => __DIR__ . '/../..' . '/src/Domain/Exceptions/UserAlreadyExistsException.php',
+        'UserApplicationMapper' => __DIR__ . '/../..' . '/src/Application/Services/Mappers/UserApplicationMapper.php',
+        'UserController' => __DIR__ . '/../..' . '/src/Infrastructure/Entrypoints/Web/Controllers/UserController.php',
+        'UserCreatedDomainEvent' => __DIR__ . '/../..' . '/src/Domain/Events/UserCreatedDomainEvent.php',
+        'UserDeletedDomainEvent' => __DIR__ . '/../..' . '/src/Domain/Events/UserDeletedDomainEvent.php',
+        'UserEmail' => __DIR__ . '/../..' . '/src/Domain/ValueObjects/UserEmail.php',
+        'UserEntity' => __DIR__ . '/../..' . '/src/Infrastructure/Adapters/Persistence/MySQL/Entity/UserEntity.php',
+        'UserId' => __DIR__ . '/../..' . '/src/Domain/ValueObjects/UserId.php',
+        'UserModel' => __DIR__ . '/../..' . '/src/Domain/Models/UserModel.php',
+        'UserName' => __DIR__ . '/../..' . '/src/Domain/ValueObjects/UserName.php',
+        'UserNotFoundException' => __DIR__ . '/../..' . '/src/Domain/Exceptions/UserNotFoundException.php',
+        'UserPassword' => __DIR__ . '/../..' . '/src/Domain/ValueObjects/UserPassword.php',
+        'UserPersistenceDto' => __DIR__ . '/../..' . '/src/Infrastructure/Adapters/Persistence/MySQL/Dto/UserPersistenceDto.php',
+        'UserPersistenceMapper' => __DIR__ . '/../..' . '/src/Infrastructure/Adapters/Persistence/MySQL/Mapper/UserPersistenceMapper.php',
+        'UserRepositoryMySQL' => __DIR__ . '/../..' . '/src/Infrastructure/Adapters/Persistence/MySQL/Repository/UserRepositoryMySQL.php',
+        'UserResponse' => __DIR__ . '/../..' . '/src/Infrastructure/Entrypoints/Web/Controllers/Dto/UserResponse.php',
+        'UserRoleEnum' => __DIR__ . '/../..' . '/src/Domain/Enums/UserRoleEnum.php',
+        'UserStatusEnum' => __DIR__ . '/../..' . '/src/Domain/Enums/UserStatusEnum.php',
+        'UserUpdatedDomainEvent' => __DIR__ . '/../..' . '/src/Domain/Events/UserUpdatedDomainEvent.php',
+        'UserWebMapper' => __DIR__ . '/../..' . '/src/Infrastructure/Entrypoints/Web/Controllers/Mapper/UserWebMapper.php',
+        'View' => __DIR__ . '/../..' . '/src/Infrastructure/Entrypoints/Web/Presentation/View.php',
+        'WebRoutes' => __DIR__ . '/../..' . '/src/Infrastructure/Entrypoints/Web/Controllers/Config/WebRoutes.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitb7f60876dab755844675d7631bf687da::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitb7f60876dab755844675d7631bf687da::$prefixDirsPsr4;
             $loader->classMap = ComposerStaticInitb7f60876dab755844675d7631bf687da::$classMap;
 
         }, null, ClassLoader::class);
