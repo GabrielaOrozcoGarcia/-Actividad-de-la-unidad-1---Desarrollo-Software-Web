@@ -245,6 +245,110 @@ try {
             View::redirect('auth.forgot');
             break;
 
+        // ── Pets ────────────────────────────────────────────────────────
+        case 'pets.create':
+            View::render('pets/create', buildCreatePetViewData());
+            break;
+
+        case 'pets.store':
+            $controller = DependencyInjection::getPetController();
+            $form       = getCreatePetFormData();
+            $form['id'] = generateUuid4();
+            $errors     = validateCreatePetForm($form);
+            if (!empty($errors)) {
+                Flash::setOld($form);
+                Flash::setErrors($errors);
+                Flash::setMessage('Corrige los errores del formulario.');
+                View::redirect('pets.create');
+            }
+            $request = new CreatePetWebRequest(
+                $form['id'],
+                $form['name'],
+                $form['gender'],
+                (float) $form['weight'],
+                $form['size'],
+                $form['color'],
+                $form['breed'],
+                $form['species'],
+                $form['birth_date'],
+                $form['owner'],
+                $form['habitat'],
+                !empty($form['has_vaccines']),
+                $form['veterinarian']
+            );
+            $controller->store($request);
+            Flash::setSuccess('Mascota registrada correctamente.');
+            View::redirect('pets.index');
+            break;
+
+        case 'pets.index':
+            $controller = DependencyInjection::getPetController();
+            $pets       = $controller->index();
+            View::render('pets/list', array(
+                'pageTitle' => 'Lista de mascotas',
+                'pets'      => $pets,
+                'message'   => Flash::message(),
+                'success'   => Flash::success(),
+            ));
+            break;
+
+        case 'pets.show':
+            $controller = DependencyInjection::getPetController();
+            $id         = isset($_GET['id']) ? trim((string) $_GET['id']) : '';
+            $pet        = $controller->show($id);
+            View::render('pets/show', array(
+                'pageTitle' => 'Detalle de mascota',
+                'pet'       => $pet,
+                'message'   => Flash::message(),
+            ));
+            break;
+
+        case 'pets.edit':
+            $controller = DependencyInjection::getPetController();
+            $id         = isset($_GET['id']) ? trim((string) $_GET['id']) : '';
+            $pet        = $controller->show($id);
+            View::render('pets/edit', buildEditPetViewData($pet));
+            break;
+
+        case 'pets.update':
+            $controller = DependencyInjection::getPetController();
+            $form       = getUpdatePetFormData();
+            $errors     = validateUpdatePetForm($form);
+            if (!empty($errors)) {
+                Flash::setOld($form);
+                Flash::setErrors($errors);
+                Flash::setMessage('Corrige los errores del formulario.');
+                header('Location: ?route=pets.edit&id=' . urlencode($form['id']));
+                exit;
+            }
+            $request = new UpdatePetWebRequest(
+                $form['id'],
+                $form['name'],
+                $form['gender'],
+                (float) $form['weight'],
+                $form['size'],
+                $form['color'],
+                $form['breed'],
+                $form['species'],
+                $form['birth_date'],
+                $form['owner'],
+                $form['habitat'],
+                !empty($form['has_vaccines']),
+                $form['veterinarian']
+            );
+            $controller->update($request);
+            Flash::setSuccess('Mascota actualizada correctamente.');
+            View::redirect('pets.index');
+            break;
+
+        case 'pets.delete':
+            $controller = DependencyInjection::getPetController();
+            $id         = isset($_POST['id']) ? trim((string) $_POST['id']) : '';
+            $controller->delete($id);
+            Flash::setSuccess('Mascota eliminada correctamente.');
+            View::redirect('pets.index');
+            break;
+
         default:
             throw new \RuntimeException('Acción no soportada.');
     }
@@ -278,6 +382,20 @@ try {
             break;
         default:
             View::render('home', buildHomeViewData($msg));
+            break;
+        case 'pets.store':
+            Flash::setOld(getCreatePetFormData());
+            View::redirect('pets.create');
+            break;
+        case 'pets.update':
+            $updateId = trim((string) ($_POST['id'] ?? ''));
+            Flash::setOld(getUpdatePetFormData());
+            header('Location: ?route=pets.edit&id=' . urlencode($updateId));
+            exit;
+        case 'pets.show':
+        case 'pets.edit':
+        case 'pets.delete':
+            View::redirect('pets.index');
             break;
     }
 }
@@ -418,4 +536,92 @@ function validateUpdateUserForm(array $form): array
         $errors['status'] = 'El estado es obligatorio.';
     }
     return $errors;
+}
+
+// ── Pet helpers ───────────────────────────────────────────────────────────────
+function buildCreatePetViewData(): array
+{
+    return array(
+        'pageTitle'     => 'Registrar mascota',
+        'genderOptions' => PetGenderEnum::values(),
+        'sizeOptions'   => PetSizeEnum::values(),
+        'habitatOptions' => PetHabitatEnum::values(),
+        'message'       => Flash::message(),
+        'errors'        => Flash::errors(),
+        'old'           => Flash::old(),
+    );
+}
+
+function buildEditPetViewData(PetResponse $pet): array
+{
+    return array(
+        'pageTitle'     => 'Editar mascota',
+        'pet'           => $pet,
+        'genderOptions' => PetGenderEnum::values(),
+        'sizeOptions'   => PetSizeEnum::values(),
+        'habitatOptions' => PetHabitatEnum::values(),
+        'message'       => Flash::message(),
+        'errors'        => Flash::errors(),
+        'old'           => Flash::old(),
+    );
+}
+
+function getCreatePetFormData(): array
+{
+    return array(
+        'name'         => isset($_POST['name'])         ? trim((string) $_POST['name'])         : '',
+        'gender'       => isset($_POST['gender'])       ? trim((string) $_POST['gender'])       : '',
+        'weight'       => isset($_POST['weight'])       ? trim((string) $_POST['weight'])       : '',
+        'size'         => isset($_POST['size'])         ? trim((string) $_POST['size'])         : '',
+        'color'        => isset($_POST['color'])        ? trim((string) $_POST['color'])        : '',
+        'breed'        => isset($_POST['breed'])        ? trim((string) $_POST['breed'])        : '',
+        'species'      => isset($_POST['species'])      ? trim((string) $_POST['species'])      : '',
+        'birth_date'   => isset($_POST['birth_date'])   ? trim((string) $_POST['birth_date'])   : '',
+        'owner'        => isset($_POST['owner'])        ? trim((string) $_POST['owner'])        : '',
+        'habitat'      => isset($_POST['habitat'])      ? trim((string) $_POST['habitat'])      : '',
+        'has_vaccines' => isset($_POST['has_vaccines']) ? (string) $_POST['has_vaccines']       : '',
+        'veterinarian' => isset($_POST['veterinarian']) ? trim((string) $_POST['veterinarian']) : '',
+    );
+}
+
+function getUpdatePetFormData(): array
+{
+    $data = getCreatePetFormData();
+    $data['id'] = isset($_POST['id']) ? trim((string) $_POST['id']) : '';
+    return $data;
+}
+
+function validateCreatePetForm(array $form): array
+{
+    $errors = array();
+    if ($form['name'] === '') {
+        $errors['name']         = 'El nombre es obligatorio.';
+    }
+    if ($form['species'] === '') {
+        $errors['species']      = 'La especie es obligatoria.';
+    }
+    if ($form['breed'] === '') {
+        $errors['breed']        = 'La raza es obligatoria.';
+    }
+    if ($form['color'] === '') {
+        $errors['color']        = 'El color es obligatorio.';
+    }
+    if ($form['owner'] === '') {
+        $errors['owner']        = 'El propietario es obligatorio.';
+    }
+    if ($form['veterinarian'] === '') {
+        $errors['veterinarian'] = 'El veterinario es obligatorio.';
+    }
+    if ($form['birth_date'] === '') {
+        $errors['birth_date']   = 'La fecha de nacimiento es obligatoria.';
+    }
+    if ($form['weight'] === '' || (float) $form['weight'] <= 0) {
+        $errors['weight'] = 'El peso debe ser mayor que cero.';
+    }
+    return $errors;
+}
+
+function validateUpdatePetForm(array $form): array
+{
+    return validateCreatePetForm($form);
 }
