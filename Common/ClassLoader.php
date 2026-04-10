@@ -66,6 +66,70 @@ final class ClassLoader
         'View'                         => 'src/Infrastructure/Entrypoints/Web/Presentation/View.php',
         'Flash'                        => 'src/Infrastructure/Entrypoints/Web/Presentation/Flash.php',
         'DependencyInjection'          => 'Common/DependencyInjection.php',
+        // ── Pets Exceptions ──
+        'InvalidPetNameException'         => 'src/Domain/Exceptions/InvalidPetNameException.php',
+        'InvalidPetGenderException'       => 'src/Domain/Exceptions/InvalidPetGenderException.php',
+        'InvalidPetWeightException'       => 'src/Domain/Exceptions/InvalidPetWeightException.php',
+        'InvalidPetSizeException'         => 'src/Domain/Exceptions/InvalidPetSizeException.php',
+        'InvalidPetColorException'        => 'src/Domain/Exceptions/InvalidPetColorException.php',
+        'InvalidPetBreedException'        => 'src/Domain/Exceptions/InvalidPetBreedException.php',
+        'InvalidPetSpeciesException'      => 'src/Domain/Exceptions/InvalidPetSpeciesException.php',
+        'InvalidPetBirthDateException'    => 'src/Domain/Exceptions/InvalidPetBirthDateException.php',
+        'InvalidPetOwnerException'        => 'src/Domain/Exceptions/InvalidPetOwnerException.php',
+        'InvalidPetHabitatException'      => 'src/Domain/Exceptions/InvalidPetHabitatException.php',
+        'InvalidPetVeterinarianException' => 'src/Domain/Exceptions/InvalidPetVeterinarianException.php',
+        'PetNotFoundException'            => 'src/Domain/Exceptions/PetNotFoundException.php',
+        // ── Pets Enums ──
+        'PetGenderEnum'  => 'src/Domain/Enums/PetGenderEnum.php',
+        'PetSizeEnum'    => 'src/Domain/Enums/PetSizeEnum.php',
+        'PetHabitatEnum' => 'src/Domain/Enums/PetHabitatEnum.php',
+        // ── Pets Value Objects ──
+        'PetId'           => 'src/Domain/ValueObjects/PetId.php',
+        'PetName'         => 'src/Domain/ValueObjects/PetName.php',
+        'PetWeight'       => 'src/Domain/ValueObjects/PetWeight.php',
+        'PetColor'        => 'src/Domain/ValueObjects/PetColor.php',
+        'PetBreed'        => 'src/Domain/ValueObjects/PetBreed.php',
+        'PetSpecies'      => 'src/Domain/ValueObjects/PetSpecies.php',
+        'PetBirthDate'    => 'src/Domain/ValueObjects/PetBirthDate.php',
+        'PetOwner'        => 'src/Domain/ValueObjects/PetOwner.php',
+        'PetVeterinarian' => 'src/Domain/ValueObjects/PetVeterinarian.php',
+        // ── Pets Model ──
+        'PetModel' => 'src/Domain/Models/PetModel.php',
+        // ── Pets Ports Out ──
+        'SavePetPort'      => 'src/Application/Ports/Out/SavePetPort.php',
+        'UpdatePetPort'    => 'src/Application/Ports/Out/UpdatePetPort.php',
+        'DeletePetPort'    => 'src/Application/Ports/Out/DeletePetPort.php',
+        'GetPetByIdPort'   => 'src/Application/Ports/Out/GetPetByIdPort.php',
+        'GetAllPetsPort'   => 'src/Application/Ports/Out/GetAllPetsPort.php',
+        // ── Pets Ports In ──
+        'CreatePetUseCase'  => 'src/Application/Ports/In/CreatePetUseCase.php',
+        'UpdatePetUseCase'  => 'src/Application/Ports/In/UpdatePetUseCase.php',
+        'DeletePetUseCase'  => 'src/Application/Ports/In/DeletePetUseCase.php',
+        'GetPetByIdUseCase' => 'src/Application/Ports/In/GetPetByIdUseCase.php',
+        'GetAllPetsUseCase' => 'src/Application/Ports/In/GetAllPetsUseCase.php',
+        // ── Pets Commands & Queries ──
+        'CreatePetCommand' => 'src/Application/Services/Dto/Commands/CreatePetCommand.php',
+        'UpdatePetCommand' => 'src/Application/Services/Dto/Commands/UpdatePetCommand.php',
+        'DeletePetCommand' => 'src/Application/Services/Dto/Commands/DeletePetCommand.php',
+        'GetPetByIdQuery'  => 'src/Application/Services/Dto/Queries/GetPetByIdQuery.php',
+        'GetAllPetsQuery'  => 'src/Application/Services/Dto/Queries/GetAllPetsQuery.php',
+        // ── Pets Services ──
+        'CreatePetService'  => 'src/Application/Services/CreatePetService.php',
+        'UpdatePetService'  => 'src/Application/Services/UpdatePetService.php',
+        'DeletePetService'  => 'src/Application/Services/DeletePetService.php',
+        'GetPetByIdService' => 'src/Application/Services/GetPetByIdService.php',
+        'GetAllPetsService' => 'src/Application/Services/GetAllPetsService.php',
+        // ── Pets Infrastructure ──
+        'PetPersistenceDto'     => 'src/Infrastructure/Adapters/Persistence/MySQL/Dto/PetPersistenceDto.php',
+        'PetEntity'             => 'src/Infrastructure/Adapters/Persistence/MySQL/Entity/PetEntity.php',
+        'PetPersistenceMapper'  => 'src/Infrastructure/Adapters/Persistence/MySQL/Mapper/PetPersistenceMapper.php',
+        'PetRepositoryMySQL'    => 'src/Infrastructure/Adapters/Persistence/MySQL/Repository/PetRepositoryMySQL.php',
+        // ── Pets Entrypoints ──
+        'CreatePetWebRequest' => 'src/Infrastructure/Entrypoints/Web/Controllers/Dto/CreatePetRequest.php',
+        'UpdatePetWebRequest' => 'src/Infrastructure/Entrypoints/Web/Controllers/Dto/UpdatePetRequest.php',
+        'PetResponse'         => 'src/Infrastructure/Entrypoints/Web/Controllers/Dto/PetResponse.php',
+        'PetWebMapper'        => 'src/Infrastructure/Entrypoints/Web/Controllers/Mapper/PetWebMapper.php',
+        'PetController'       => 'src/Infrastructure/Entrypoints/Web/Controllers/PetController.php',
     );
 
     public static function register(): void

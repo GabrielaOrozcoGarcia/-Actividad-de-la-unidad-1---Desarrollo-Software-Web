@@ -20,6 +20,14 @@ final class WebRoutes
             'auth.logout'       => array('method' => 'GET',  'action' => 'logout'),
             'auth.forgot'       => array('method' => 'GET',  'action' => 'forgot'),
             'auth.forgot.send'  => array('method' => 'POST', 'action' => 'forgot.send'),
+            // ── Pets ──
+            'pets.create' => array('method' => 'GET',  'action' => 'pets.create'),
+            'pets.store'  => array('method' => 'POST', 'action' => 'pets.store'),
+            'pets.index'  => array('method' => 'GET',  'action' => 'pets.index'),
+            'pets.show'   => array('method' => 'GET',  'action' => 'pets.show'),
+            'pets.edit'   => array('method' => 'GET',  'action' => 'pets.edit'),
+            'pets.update' => array('method' => 'POST', 'action' => 'pets.update'),
+            'pets.delete' => array('method' => 'POST', 'action' => 'pets.delete'),
         );
     }
 }

@@ -98,4 +98,67 @@ final class DependencyInjection
             self::getUserWebMapper()
         );
     }
+
+    public static function getPetPersistenceMapper(): PetPersistenceMapper
+    {
+        ClassLoader::loadClass('PetPersistenceMapper');
+        return new PetPersistenceMapper();
+    }
+
+    public static function getPetRepository(): PetRepositoryMySQL
+    {
+        ClassLoader::loadClass('PetRepositoryMySQL');
+        return new PetRepositoryMySQL(self::getPdo(), self::getPetPersistenceMapper());
+    }
+
+    public static function getCreatePetUseCase(): CreatePetUseCase
+    {
+        ClassLoader::loadClass('CreatePetService');
+        return new CreatePetService(self::getPetRepository());
+    }
+
+    public static function getUpdatePetUseCase(): UpdatePetUseCase
+    {
+        ClassLoader::loadClass('UpdatePetService');
+        $repo = self::getPetRepository();
+        return new UpdatePetService($repo, $repo);
+    }
+
+    public static function getDeletePetUseCase(): DeletePetUseCase
+    {
+        ClassLoader::loadClass('DeletePetService');
+        $repo = self::getPetRepository();
+        return new DeletePetService($repo, $repo);
+    }
+
+    public static function getGetPetByIdUseCase(): GetPetByIdUseCase
+    {
+        ClassLoader::loadClass('GetPetByIdService');
+        return new GetPetByIdService(self::getPetRepository());
+    }
+
+    public static function getGetAllPetsUseCase(): GetAllPetsUseCase
+    {
+        ClassLoader::loadClass('GetAllPetsService');
+        return new GetAllPetsService(self::getPetRepository());
+    }
+
+    public static function getPetWebMapper(): PetWebMapper
+    {
+        ClassLoader::loadClass('PetWebMapper');
+        return new PetWebMapper();
+    }
+
+    public static function getPetController(): PetController
+    {
+        ClassLoader::loadClass('PetController');
+        return new PetController(
+            self::getCreatePetUseCase(),
+            self::getUpdatePetUseCase(),
+            self::getGetPetByIdUseCase(),
+            self::getGetAllPetsUseCase(),
+            self::getDeletePetUseCase(),
+            self::getPetWebMapper()
+        );
+    }
 }
