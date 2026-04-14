@@ -74,7 +74,7 @@ class ComposerStaticInitb7f60876dab755844675d7631bf687da
         'PetBirthDate' => __DIR__ . '/../..' . '/src/Domain/ValueObjects/PetBirthDate.php',
         'PetBreed' => __DIR__ . '/../..' . '/src/Domain/ValueObjects/PetBreed.php',
         'PetColor' => __DIR__ . '/../..' . '/src/Domain/ValueObjects/PetColor.php',
-        'PetController' => __DIR__ . '/../..' . '/src/Infrastructure/Entrypoints/Web/Controllers/PetWebController.php',
+        'PetController' => __DIR__ . '/../..' . '/src/Infrastructure/Entrypoints/Web/Controllers/PetController.php',
         'PetEntity' => __DIR__ . '/../..' . '/src/Infrastructure/Adapters/Persistence/MySQL/Entity/PetEntity.php',
         'PetGenderEnum' => __DIR__ . '/../..' . '/src/Domain/Enums/PetGenderEnum.php',
         'PetHabitatEnum' => __DIR__ . '/../..' . '/src/Domain/Enums/PetHabitatEnum.php',
