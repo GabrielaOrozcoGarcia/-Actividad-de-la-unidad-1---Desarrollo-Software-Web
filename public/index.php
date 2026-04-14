@@ -37,7 +37,7 @@ function isLoggedIn(): bool
 function requireAuth(): void
 {
     if (!isLoggedIn()) {
-        Flash::setMessage('Debes iniciar sesión para acceder a esta sección.');
+        Flash::setMessage('Debes iniciar sesion para acceder a esta seccion.');
         View::redirect('auth.login');
     }
 }
@@ -62,13 +62,13 @@ $httpMethod = strtoupper((string) $_SERVER['REQUEST_METHOD']);
 
 if ($httpMethod !== $definition['method']) {
     http_response_code(405);
-    View::render('home', buildHomeViewData('Método HTTP no permitido.'));
+    View::render('home', buildHomeViewData('Metodo HTTP no permitido.'));
     exit;
 }
 
 $publicActions = array('home', 'login', 'authenticate', 'logout', 'forgot', 'forgot.send', 'create', 'store');
 if (!in_array($definition['action'], $publicActions, true) && !isLoggedIn()) {
-    Flash::setMessage('Debes iniciar sesión para acceder a esta sección.');
+    Flash::setMessage('Debes iniciar sesion para acceder a esta seccion.');
     View::redirect('auth.login');
 }
 
@@ -168,7 +168,7 @@ try {
                 View::redirect('home');
             }
             View::render('auth/login', array(
-                'pageTitle' => 'Iniciar sesión',
+                'pageTitle' => 'Iniciar sesion',
                 'message'   => Flash::message(),
                 'errors'    => Flash::errors(),
                 'old'       => Flash::old(),
@@ -221,7 +221,7 @@ try {
         case 'forgot.send':
             $forgotEmail = trim(strtolower((string) ($_POST['email'] ?? '')));
             if ($forgotEmail === '' || !filter_var($forgotEmail, FILTER_VALIDATE_EMAIL)) {
-                Flash::setErrors(array('email' => 'Introduce un correo electrónico válido.'));
+                Flash::setErrors(array('email' => 'Introduce un correo electronico valido.'));
                 Flash::setOld(array('email' => $forgotEmail));
                 View::redirect('auth.forgot');
             }
@@ -239,8 +239,8 @@ try {
                 );
             }
             Flash::setSuccess(
-                'Si el correo está registrado y la cuenta está activa, ' .
-                    'recibirás un mensaje con tu contraseña temporal.'
+                'Si el correo esta registrado y la cuenta esta activa, ' .
+                    'recibiras un mensaje con tu contraseña temporal.'
             );
             View::redirect('auth.forgot');
             break;
@@ -350,7 +350,7 @@ try {
             break;
 
         default:
-            throw new \RuntimeException('Acción no soportada.');
+            throw new \RuntimeException('Accion no soportada.');
     }
 } catch (\Throwable $exception) {
     $msg = $exception->getMessage();
@@ -408,7 +408,7 @@ function sendPasswordRecoveryEmail(string $email, string $name, string $tempPass
     extract(array('email' => $email, 'name' => $name, 'tempPassword' => $tempPassword), EXTR_SKIP);
     require $templateFile;
     $htmlBody = (string) ob_get_clean();
-    $subject  = '=?UTF-8?B?' . base64_encode('Recuperación de contraseña') . '?=';
+    $subject  = '=?UTF-8?B?' . base64_encode('Recuperacion de contraseña') . '?=';
     $headers  = implode("\r\n", array(
         'MIME-Version: 1.0',
         'Content-Type: text/html; charset=UTF-8',
@@ -432,7 +432,7 @@ function buildListUsersViewData(array $users): array
 function buildHomeViewData(string $message = ''): array
 {
     return array(
-        'pageTitle' => 'Menú principal',
+        'pageTitle' => 'Menu principal',
         'message'   => $message,
         'success'   => Flash::success(),
     );
@@ -502,7 +502,7 @@ function validateCreateUserForm(array $form): array
     if ($form['email'] === '') {
         $errors['email'] = 'El correo es obligatorio.';
     } elseif (!filter_var($form['email'], FILTER_VALIDATE_EMAIL)) {
-        $errors['email'] = 'El correo no tiene un formato válido.';
+        $errors['email'] = 'El correo no tiene un formato valido.';
     }
     if ($form['password'] === '') {
         $errors['password'] = 'La contraseña es obligatoria.';
@@ -524,7 +524,7 @@ function validateUpdateUserForm(array $form): array
     if ($form['email'] === '') {
         $errors['email'] = 'El correo es obligatorio.';
     } elseif (!filter_var($form['email'], FILTER_VALIDATE_EMAIL)) {
-        $errors['email'] = 'El correo no tiene un formato válido.';
+        $errors['email'] = 'El correo no tiene un formato valido.';
     }
     if ($form['password'] !== '' && strlen($form['password']) < 8) {
         $errors['password'] = 'La contraseña debe tener al menos 8 caracteres si deseas cambiarla.';

@@ -22,7 +22,7 @@
         <td><?= htmlspecialchars($pet->getBreed(),         ENT_QUOTES, 'UTF-8') ?></td>
     </tr>
     <tr>
-        <th>Género</th>
+        <th>Genero</th>
         <td><?= htmlspecialchars($pet->getGender(),        ENT_QUOTES, 'UTF-8') ?></td>
     </tr>
     <tr>
@@ -46,7 +46,7 @@
         <td><?= htmlspecialchars($pet->getOwner(),         ENT_QUOTES, 'UTF-8') ?></td>
     </tr>
     <tr>
-        <th>Hábitat</th>
+        <th>Habitat</th>
         <td><?= htmlspecialchars($pet->getHabitat(),       ENT_QUOTES, 'UTF-8') ?></td>
     </tr>
     <tr>

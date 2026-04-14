@@ -10,7 +10,7 @@
     <p>Introduce el correo con el que te registraste y te enviaremos una contraseña temporal.</p>
     <form method="POST" action="?route=auth.forgot.send">
         <div class="form-group">
-            <label for="email">Correo electrónico</label><br>
+            <label for="email">Correo electronico</label><br>
             <input type="email" id="email" name="email"
                 value="<?= htmlspecialchars($old['email'] ?? '', ENT_QUOTES, 'UTF-8') ?>" autofocus>
             <?php if (!empty($errors['email'])): ?>
@@ -19,6 +19,6 @@
         </div>
         <button type="submit" class="btn btn-primary">Enviar contraseña temporal</button>
     </form>
-    <p style="margin-top: 16px;"><a href="?route=auth.login">Volver al inicio de sesión</a></p>
+    <p style="margin-top: 16px;"><a href="?route=auth.login">Volver al inicio de sesion</a></p>
 </div>
 <?php require __DIR__ . '/../layouts/footer.php'; ?>

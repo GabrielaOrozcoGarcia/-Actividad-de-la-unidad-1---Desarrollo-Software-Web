@@ -21,7 +21,7 @@
         <?php if (!empty($errors['breed'])): ?><div class="field-error"><?= htmlspecialchars($errors['breed'], ENT_QUOTES, 'UTF-8') ?></div><?php endif; ?>
     </div>
     <div class="form-group">
-        <label>Género</label><br>
+        <label>Genero</label><br>
         <select name="gender">
             <?php foreach ($genderOptions as $opt): ?>
                 <option value="<?= htmlspecialchars($opt, ENT_QUOTES, 'UTF-8') ?>"
@@ -64,7 +64,7 @@
         <?php if (!empty($errors['owner'])): ?><div class="field-error"><?= htmlspecialchars($errors['owner'], ENT_QUOTES, 'UTF-8') ?></div><?php endif; ?>
     </div>
     <div class="form-group">
-        <label>Hábitat</label><br>
+        <label>Habitat</label><br>
         <select name="habitat">
             <?php foreach ($habitatOptions as $opt): ?>
                 <option value="<?= htmlspecialchars($opt, ENT_QUOTES, 'UTF-8') ?>"

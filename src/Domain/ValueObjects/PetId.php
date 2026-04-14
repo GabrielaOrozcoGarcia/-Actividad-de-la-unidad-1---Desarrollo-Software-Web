@@ -10,7 +10,7 @@ class PetId
     {
         $normalized = trim($value);
         if ($normalized === '') {
-            throw new \InvalidArgumentException('El ID de la mascota no puede estar vacío.');
+            throw new \InvalidArgumentException('El ID de la mascota no puede estar vacio.');
         }
         $this->value = $normalized;
     }

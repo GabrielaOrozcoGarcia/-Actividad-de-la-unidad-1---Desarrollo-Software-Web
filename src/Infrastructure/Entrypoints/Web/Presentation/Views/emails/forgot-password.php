@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Recuperación de contraseña</title>
+    <title>Recuperacion de contraseña</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -51,14 +51,14 @@
 <body>
     <div class="container">
         <h2>Hola, <?= htmlspecialchars($name, ENT_QUOTES, 'UTF-8') ?></h2>
-        <p>Recibimos una solicitud de recuperación de contraseña para la cuenta registrada con el correo
+        <p>Recibimos una solicitud de recuperacion de contraseña para la cuenta registrada con el correo
             <strong><?= htmlspecialchars($email, ENT_QUOTES, 'UTF-8') ?></strong>.
         </p>
         <p>Tu nueva contraseña temporal es:</p>
         <div class="password-box"><?= htmlspecialchars($tempPassword, ENT_QUOTES, 'UTF-8') ?></div>
-        <p>Por seguridad, <strong>te recomendamos cambiar esta contraseña</strong> inmediatamente después de iniciar sesión.</p>
+        <p>Por seguridad, <strong>te recomendamos cambiar esta contraseña</strong> inmediatamente despues de iniciar sesion.</p>
         <p>Si no solicitaste este cambio, puedes ignorar este correo.</p>
-        <div class="footer-note">Este es un correo automático generado por el sistema, por favor no respondas a este mensaje.</div>
+        <div class="footer-note">Este es un correo automatico generado por el sistema, por favor no respondas a este mensaje.</div>
     </div>
 </body>
 

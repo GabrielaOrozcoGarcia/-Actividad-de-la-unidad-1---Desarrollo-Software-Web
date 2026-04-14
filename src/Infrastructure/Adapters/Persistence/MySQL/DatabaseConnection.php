@@ -26,7 +26,7 @@ class DatabaseConnection
                     ]
                 );
             } catch (PDOException $e) {
-                die('Error de conexión a la base de datos: ' . $e->getMessage());
+                die('Error de conexion a la base de datos: ' . $e->getMessage());
             }
         }
         return self::$instance;

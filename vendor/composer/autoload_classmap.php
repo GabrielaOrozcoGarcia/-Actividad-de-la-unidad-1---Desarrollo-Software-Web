@@ -73,7 +73,7 @@ return array(
     'PetBirthDate' => $baseDir . '/src/Domain/ValueObjects/PetBirthDate.php',
     'PetBreed' => $baseDir . '/src/Domain/ValueObjects/PetBreed.php',
     'PetColor' => $baseDir . '/src/Domain/ValueObjects/PetColor.php',
-    'PetController' => $baseDir . '/src/Infrastructure/Entrypoints/Web/Controllers/PetWebController.php',
+    'PetController' => $baseDir . '/src/Infrastructure/Entrypoints/Web/Controllers/PetController.php',
     'PetEntity' => $baseDir . '/src/Infrastructure/Adapters/Persistence/MySQL/Entity/PetEntity.php',
     'PetGenderEnum' => $baseDir . '/src/Domain/Enums/PetGenderEnum.php',
     'PetHabitatEnum' => $baseDir . '/src/Domain/Enums/PetHabitatEnum.php',
