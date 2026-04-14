@@ -47,7 +47,6 @@ return array(
     'Infrastructure\\Entrypoints\\Web\\Controllers\\Mapper\\UserWebMapper' => $baseDir . '/src/Application/Services/Mappers/UserWebMapper.php',
     'Infrastructure\\Persistence\\MySQL\\Container' => $baseDir . '/src/Infrastructure/Adapters/Persistence/MySQL/Container.php',
     'Infrastructure\\Persistence\\MySQL\\DatabaseConnection' => $baseDir . '/src/Infrastructure/Adapters/Persistence/MySQL/DatabaseConnection.php',
-    'Infrastructure\\Persistence\\MySQL\\UserRepositoryMySQL' => $baseDir . '/src/Infrastructure/Adapters/Persistence/MySQL/UserRepositoryMySQL.php',
     'InvalidCredentialsException' => $baseDir . '/src/Domain/Exceptions/InvalidCredentialsException.php',
     'InvalidPetBirthDateException' => $baseDir . '/src/Domain/Exceptions/InvalidPetBirthDateException.php',
     'InvalidPetBreedException' => $baseDir . '/src/Domain/Exceptions/InvalidPetBreedException.php',

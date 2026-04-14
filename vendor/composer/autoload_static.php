@@ -48,7 +48,6 @@ class ComposerStaticInitb7f60876dab755844675d7631bf687da
         'Infrastructure\\Entrypoints\\Web\\Controllers\\Mapper\\UserWebMapper' => __DIR__ . '/../..' . '/src/Application/Services/Mappers/UserWebMapper.php',
         'Infrastructure\\Persistence\\MySQL\\Container' => __DIR__ . '/../..' . '/src/Infrastructure/Adapters/Persistence/MySQL/Container.php',
         'Infrastructure\\Persistence\\MySQL\\DatabaseConnection' => __DIR__ . '/../..' . '/src/Infrastructure/Adapters/Persistence/MySQL/DatabaseConnection.php',
-        'Infrastructure\\Persistence\\MySQL\\UserRepositoryMySQL' => __DIR__ . '/../..' . '/src/Infrastructure/Adapters/Persistence/MySQL/UserRepositoryMySQL.php',
         'InvalidCredentialsException' => __DIR__ . '/../..' . '/src/Domain/Exceptions/InvalidCredentialsException.php',
         'InvalidPetBirthDateException' => __DIR__ . '/../..' . '/src/Domain/Exceptions/InvalidPetBirthDateException.php',
         'InvalidPetBreedException' => __DIR__ . '/../..' . '/src/Domain/Exceptions/InvalidPetBreedException.php',
