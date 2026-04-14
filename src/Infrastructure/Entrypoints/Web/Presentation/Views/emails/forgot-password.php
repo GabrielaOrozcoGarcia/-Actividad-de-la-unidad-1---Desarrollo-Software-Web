@@ -56,7 +56,7 @@
         </p>
         <p>Tu nueva contraseña temporal es:</p>
         <div class="password-box"><?= htmlspecialchars($tempPassword, ENT_QUOTES, 'UTF-8') ?></div>
-        <p>Por seguridad, <strong>te recomendamos cambiar esta contraseña</strong> inmediatamente después de iniciar sesion.</p>
+        <p>Por seguridad, <strong>te recomendamos cambiar esta contraseña</strong> inmediatamente despues de iniciar sesion.</p>
         <p>Si no solicitaste este cambio, puedes ignorar este correo.</p>
         <div class="footer-note">Este es un correo automatico generado por el sistema, por favor no respondas a este mensaje.</div>
     </div>

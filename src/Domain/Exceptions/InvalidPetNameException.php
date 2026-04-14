@@ -6,7 +6,7 @@ class InvalidPetNameException extends \InvalidArgumentException
 {
     public static function becauseValueIsEmpty(): self
     {
-        return new self('El nombre de la mascota no puede estar vacío.');
+        return new self('El nombre de la mascota no puede estar vacio.');
     }
 
     public static function becauseLengthIsTooShort(int $min): self

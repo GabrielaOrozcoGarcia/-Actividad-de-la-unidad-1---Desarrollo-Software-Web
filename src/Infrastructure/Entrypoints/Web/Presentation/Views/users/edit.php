@@ -23,7 +23,7 @@
         <?php endif; ?>
     </div>
     <div class="form-group">
-        <label for="password">Contraseña <small>(déjala en blanco para no cambiarla)</small></label><br>
+        <label for="password">Contraseña <small>(dejala en blanco para no cambiarla)</small></label><br>
         <input type="password" id="password" name="password" value="" autocomplete="new-password">
         <?php if (!empty($errors['password'])): ?>
             <div class="field-error"><?= htmlspecialchars($errors['password'], ENT_QUOTES, 'UTF-8') ?></div>

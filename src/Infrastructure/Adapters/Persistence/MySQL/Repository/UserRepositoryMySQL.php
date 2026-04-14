@@ -35,7 +35,7 @@ final class UserRepositoryMySQL implements
         ));
         $saved = $this->getById(new UserId($dto->id()));
         if ($saved === null) {
-            throw new \RuntimeException('El usuario no pudo recuperarse después de guardarse.');
+            throw new \RuntimeException('El usuario no pudo recuperarse despues de guardarse.');
         }
         return $saved;
     }
@@ -56,7 +56,7 @@ final class UserRepositoryMySQL implements
         ));
         $updated = $this->getById(new UserId($dto->id()));
         if ($updated === null) {
-            throw new \RuntimeException('El usuario no pudo recuperarse después de actualizarse.');
+            throw new \RuntimeException('El usuario no pudo recuperarse despues de actualizarse.');
         }
         return $updated;
     }

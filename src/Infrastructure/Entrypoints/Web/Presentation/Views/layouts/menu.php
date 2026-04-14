@@ -109,7 +109,7 @@ declare(strict_types=1); ?>
             <a class="nav-logout" href="?route=auth.logout"> Salir</a>
         </div>
     <?php else: ?>
-        <a class="nav-link" href="?route=auth.login">Iniciar sesión</a>
+        <a class="nav-link" href="?route=auth.login">Iniciar sesion</a>
         <a class="nav-link" href="?route=auth.forgot">Recuperar contraseña</a>
     <?php endif; ?>
 </nav>

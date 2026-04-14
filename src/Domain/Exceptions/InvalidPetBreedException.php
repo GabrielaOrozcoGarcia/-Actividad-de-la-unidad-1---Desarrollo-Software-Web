@@ -6,6 +6,6 @@ class InvalidPetBreedException extends \InvalidArgumentException
 {
     public static function becauseValueIsEmpty(): self
     {
-        return new self('La raza de la mascota no puede estar vacía.');
+        return new self('La raza de la mascota no puede estar vacia.');
     }
 }

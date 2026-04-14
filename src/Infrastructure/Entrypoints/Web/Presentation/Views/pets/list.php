@@ -17,9 +17,9 @@
                 <th>Nombre</th>
                 <th>Especie</th>
                 <th>Raza</th>
-                <th>Género</th>
+                <th>Genero</th>
                 <th>Tamaño</th>
-                <th>Hábitat</th>
+                <th>Habitat</th>
                 <th>Vacunas</th>
                 <th>Propietario</th>
                 <th>Acciones</th>

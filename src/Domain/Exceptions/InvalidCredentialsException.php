@@ -11,6 +11,6 @@ class InvalidCredentialsException extends DomainException
 
     public static function becauseUserIsNotActive(): self
     {
-        return new self('Tu cuenta no está activa. Contacta al administrador.');
+        return new self('Tu cuenta no esta activa. Contacta al administrador.');
     }
 }

@@ -146,7 +146,7 @@ final class ClassLoader
         $filePath = $baseDir . self::$classMap[$className];
         if (!file_exists($filePath)) {
             throw new RuntimeException(
-                sprintf('No se encontró el archivo para la clase %s en %s', $className, $filePath)
+                sprintf('No se encontro el archivo para la clase %s en %s', $className, $filePath)
             );
         }
         require_once $filePath;

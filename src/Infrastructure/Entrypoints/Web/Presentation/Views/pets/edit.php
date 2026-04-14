@@ -20,7 +20,7 @@
         <input type="text" name="breed" value="<?= htmlspecialchars($old['breed'] ?? $pet->getBreed(), ENT_QUOTES, 'UTF-8') ?>">
     </div>
     <div class="form-group">
-        <label>Género</label><br>
+        <label>Genero</label><br>
         <select name="gender">
             <?php foreach ($genderOptions as $opt): ?>
                 <option value="<?= htmlspecialchars($opt, ENT_QUOTES, 'UTF-8') ?>"
@@ -59,7 +59,7 @@
         <input type="text" name="owner" value="<?= htmlspecialchars($old['owner'] ?? $pet->getOwner(), ENT_QUOTES, 'UTF-8') ?>">
     </div>
     <div class="form-group">
-        <label>Hábitat</label><br>
+        <label>Habitat</label><br>
         <select name="habitat">
             <?php foreach ($habitatOptions as $opt): ?>
                 <option value="<?= htmlspecialchars($opt, ENT_QUOTES, 'UTF-8') ?>"

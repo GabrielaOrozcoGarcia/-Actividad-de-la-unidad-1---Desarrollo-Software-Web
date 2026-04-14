@@ -47,7 +47,7 @@ final class PetRepositoryMySQL implements
         ));
         $saved = $this->getById(new PetId($dto->id()));
         if ($saved === null) {
-            throw new \RuntimeException('La mascota no pudo recuperarse después de guardarse.');
+            throw new \RuntimeException('La mascota no pudo recuperarse despues de guardarse.');
         }
         return $saved;
     }
@@ -80,7 +80,7 @@ final class PetRepositoryMySQL implements
         ));
         $updated = $this->getById(new PetId($dto->id()));
         if ($updated === null) {
-            throw new \RuntimeException('La mascota no pudo recuperarse después de actualizarse.');
+            throw new \RuntimeException('La mascota no pudo recuperarse despues de actualizarse.');
         }
         return $updated;
     }
