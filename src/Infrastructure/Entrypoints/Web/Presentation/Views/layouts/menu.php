@@ -104,7 +104,7 @@ declare(strict_types=1); ?>
         </div>
 
         <div class="nav-user">
-            <span>👤 <?= htmlspecialchars($authUser['name'], ENT_QUOTES, 'UTF-8') ?></span>
+            <span> <?= htmlspecialchars($authUser['name'], ENT_QUOTES, 'UTF-8') ?></span>
             <span style="color:#ccc">|</span>
             <a class="nav-logout" href="?route=auth.logout"> Salir</a>
         </div>
